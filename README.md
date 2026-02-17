@@ -26,6 +26,8 @@ See [architecture.md](architecture.md) for detailed diagrams and design decision
 git clone <repo-url>
 cd supply-chain-agents
 pip install -e .
+     or
+uv sync ( if you want to use uv and then run every command with uv run python)
 
 # Pull an LLM model
 ollama pull llama3.1
@@ -39,6 +41,7 @@ cp .env.example .env
 ```bash
 # Single query
 python app.py "What products are at risk of stockout?"
+
 
 # Interactive mode
 python app.py --interactive

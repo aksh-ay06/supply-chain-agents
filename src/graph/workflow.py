@@ -1,5 +1,5 @@
 from langgraph.graph import StateGraph, START, END
-from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+from langchain_core.messages import HumanMessage, SystemMessage
 from src.graph.state import SupervisorState
 from src.config import get_llm
 from src.agents import create_demand_analyst, create_inventory_monitor, create_supplier_analyst
@@ -21,7 +21,7 @@ For broad queries, invoke all relevant agents. Examples:
 - "How are our suppliers doing?" -> supplier_analyst"""
 
 
-def route_query(state: SupervisorState) -> SupervisorState:
+def route_query(state: SupervisorState) -> dict:
     """Coordinator node: classify query and decide which agents to call."""
     llm = get_llm()
     messages = [
@@ -32,35 +32,32 @@ def route_query(state: SupervisorState) -> SupervisorState:
     raw = response.content.strip().lower()
     selected = [name.strip() for name in raw.split(",") if name.strip() in AGENT_NAMES]
     if not selected:
-        selected = AGENT_NAMES  # fallback: invoke all
-    return {**state, "next_agents": selected, "agent_outputs": {}}
+        selected = AGENT_NAMES
+    return {"next_agents": selected}
 
 
-def run_demand_analyst(state: SupervisorState) -> SupervisorState:
+def run_demand_analyst(state: SupervisorState) -> dict:
     agent = create_demand_analyst()
     result = agent.invoke({"messages": state["messages"]})
     last_msg = result["messages"][-1].content
-    outputs = {**state.get("agent_outputs", {}), "demand_analyst": last_msg}
-    return {**state, "agent_outputs": outputs}
+    return {"agent_outputs": {"demand_analyst": last_msg}}
 
 
-def run_inventory_monitor(state: SupervisorState) -> SupervisorState:
+def run_inventory_monitor(state: SupervisorState) -> dict:
     agent = create_inventory_monitor()
     result = agent.invoke({"messages": state["messages"]})
     last_msg = result["messages"][-1].content
-    outputs = {**state.get("agent_outputs", {}), "inventory_monitor": last_msg}
-    return {**state, "agent_outputs": outputs}
+    return {"agent_outputs": {"inventory_monitor": last_msg}}
 
 
-def run_supplier_analyst(state: SupervisorState) -> SupervisorState:
+def run_supplier_analyst(state: SupervisorState) -> dict:
     agent = create_supplier_analyst()
     result = agent.invoke({"messages": state["messages"]})
     last_msg = result["messages"][-1].content
-    outputs = {**state.get("agent_outputs", {}), "supplier_analyst": last_msg}
-    return {**state, "agent_outputs": outputs}
+    return {"agent_outputs": {"supplier_analyst": last_msg}}
 
 
-def synthesize(state: SupervisorState) -> SupervisorState:
+def synthesize(state: SupervisorState) -> dict:
     """Combine agent outputs into a final report."""
     llm = get_llm()
     agent_results = "\n\n".join(
@@ -76,40 +73,28 @@ def synthesize(state: SupervisorState) -> SupervisorState:
         HumanMessage(content=f"Original query: {state['messages'][0].content}\n\nAgent Reports:\n{agent_results}"),
     ]
     response = llm.invoke(messages)
-    return {**state, "final_report": response.content}
+    return {"final_report": response.content}
 
 
-def should_run_agent(agent_name: str):
-    """Create a conditional edge function for a given agent."""
-    def check(state: SupervisorState) -> bool:
-        return agent_name in state.get("next_agents", [])
-    return check
-
-
-def build_workflow() -> StateGraph:
+def build_workflow():
     workflow = StateGraph(SupervisorState)
 
-    # Add nodes
     workflow.add_node("router", route_query)
     workflow.add_node("demand_analyst", run_demand_analyst)
     workflow.add_node("inventory_monitor", run_inventory_monitor)
     workflow.add_node("supplier_analyst", run_supplier_analyst)
     workflow.add_node("synthesizer", synthesize)
 
-    # Entry
     workflow.add_edge(START, "router")
 
-    # Router -> agents (conditional fan-out)
     def route_to_agents(state: SupervisorState) -> list[str]:
         return state.get("next_agents", AGENT_NAMES)
 
     workflow.add_conditional_edges("router", route_to_agents, AGENT_NAMES)
 
-    # Agents -> synthesizer
     for agent_name in AGENT_NAMES:
         workflow.add_edge(agent_name, "synthesizer")
 
-    # Synthesizer -> end
     workflow.add_edge("synthesizer", END)
 
     return workflow.compile()

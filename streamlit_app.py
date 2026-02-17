@@ -56,15 +56,19 @@ if prompt := st.chat_input("Ask about your supply chain..."):
                 "next_agents": [],
                 "agent_outputs": {},
                 "final_report": "",
+                "guardrail_blocked": False,
             })
 
-            # Show agent trace in expander
-            with st.expander("Agent Trace", expanded=False):
-                for agent_name, output in result.get("agent_outputs", {}).items():
-                    st.subheader(agent_name.replace("_", " ").title())
-                    st.markdown(output)
+            if result.get("guardrail_blocked"):
+                st.warning(result["final_report"])
+            else:
+                # Show agent trace in expander
+                with st.expander("Agent Trace", expanded=False):
+                    for agent_name, output in result.get("agent_outputs", {}).items():
+                        st.subheader(agent_name.replace("_", " ").title())
+                        st.markdown(output)
 
-            # Show final report
-            st.markdown(result["final_report"])
+                # Show final report
+                st.markdown(result["final_report"])
 
     st.session_state.messages.append({"role": "assistant", "content": result["final_report"]})

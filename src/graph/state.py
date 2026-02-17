@@ -17,3 +17,4 @@ class SupervisorState(TypedDict):
     next_agents: list[str]
     agent_outputs: Annotated[dict[str, str], merge_dicts]
     final_report: str
+    guardrail_blocked: bool

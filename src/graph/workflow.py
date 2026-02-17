@@ -5,6 +5,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from src.graph.state import SupervisorState
 from src.config import get_llm, IS_FREE_TIER
 from src.agents import create_demand_analyst, create_inventory_monitor, create_supplier_analyst
+from src.guardrails import check_input, check_output
 
 logger = logging.getLogger("scia")
 
@@ -39,6 +40,31 @@ def _invoke_with_retry(fn, *args, max_retries=3, **kwargs):
                 raise
     return fn(*args, **kwargs)
 
+
+# --- Guardrail nodes ---
+
+def input_guardrail(state: SupervisorState) -> dict:
+    """Validate user input before processing."""
+    query = state["messages"][-1].content
+    result = check_input(query)
+    if not result.passed:
+        return {"final_report": result.message, "guardrail_blocked": True}
+    return {"guardrail_blocked": False}
+
+
+def output_guardrail(state: SupervisorState) -> dict:
+    """Sanitize and validate output before returning to user."""
+    return {"final_report": check_output(state["final_report"])}
+
+
+def after_input_guardrail(state: SupervisorState) -> str:
+    """Route based on input guardrail result."""
+    if state.get("guardrail_blocked"):
+        return "end"
+    return "router"
+
+
+# --- Core nodes ---
 
 def route_query(state: SupervisorState) -> dict:
     """Coordinator node: classify query and decide which agents to call."""
@@ -115,13 +141,22 @@ def synthesize(state: SupervisorState) -> dict:
 def build_workflow():
     workflow = StateGraph(SupervisorState)
 
+    # Guardrail + core nodes
+    workflow.add_node("input_guardrail", input_guardrail)
     workflow.add_node("router", route_query)
     workflow.add_node("synthesizer", synthesize)
+    workflow.add_node("output_guardrail", output_guardrail)
+
+    # Entry: input guardrail first
+    workflow.add_edge(START, "input_guardrail")
+    workflow.add_conditional_edges("input_guardrail", after_input_guardrail, {
+        "end": END,
+        "router": "router",
+    })
 
     if IS_FREE_TIER:
         # Sequential: router -> agents (one node) -> synthesizer
         workflow.add_node("agents", run_agents_sequentially)
-        workflow.add_edge(START, "router")
         workflow.add_edge("router", "agents")
         workflow.add_edge("agents", "synthesizer")
     else:
@@ -129,7 +164,6 @@ def build_workflow():
         workflow.add_node("demand_analyst", run_demand_analyst)
         workflow.add_node("inventory_monitor", run_inventory_monitor)
         workflow.add_node("supplier_analyst", run_supplier_analyst)
-        workflow.add_edge(START, "router")
 
         def route_to_agents(state: SupervisorState) -> list[str]:
             return state.get("next_agents", AGENT_NAMES)
@@ -139,6 +173,8 @@ def build_workflow():
         for agent_name in AGENT_NAMES:
             workflow.add_edge(agent_name, "synthesizer")
 
-    workflow.add_edge("synthesizer", END)
+    # Output guardrail before end
+    workflow.add_edge("synthesizer", "output_guardrail")
+    workflow.add_edge("output_guardrail", END)
 
     return workflow.compile()

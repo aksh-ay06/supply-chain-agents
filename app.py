@@ -34,6 +34,7 @@ def main():
                 "next_agents": [],
                 "agent_outputs": {},
                 "final_report": "",
+                "guardrail_blocked": False,
             })
             print(f"\n{result['final_report']}\n")
     elif args.query:

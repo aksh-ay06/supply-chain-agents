@@ -1,6 +1,13 @@
 """Streamlit UI for Supply Chain Intelligence Agents."""
+import os
 import streamlit as st
 from langchain_core.messages import HumanMessage
+
+# Load Streamlit secrets into env vars (for Streamlit Cloud deployment)
+for key in ("LLM_PROVIDER", "GROQ_API_KEY", "GROQ_MODEL", "OPENAI_API_KEY", "OPENAI_MODEL",
+            "ANTHROPIC_API_KEY", "ANTHROPIC_MODEL", "OLLAMA_BASE_URL", "OLLAMA_MODEL"):
+    if key in st.secrets:
+        os.environ[key] = st.secrets[key]
 
 st.set_page_config(page_title="Supply Chain Intelligence Agents", page_icon="📦", layout="wide")
 st.title("Supply Chain Intelligence Agents")

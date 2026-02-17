@@ -3,7 +3,7 @@ import streamlit as st
 from langchain_core.messages import HumanMessage
 
 st.set_page_config(page_title="Supply Chain Intelligence Agents", page_icon="📦", layout="wide")
-st.title("📦 Supply Chain Intelligence Agents")
+st.title("Supply Chain Intelligence Agents")
 st.caption("Multi-agent system for CPG supply chain analysis powered by LangGraph")
 
 # Sidebar

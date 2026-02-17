@@ -1,0 +1,141 @@
+date,product_id,product_name,quantity_sold,stock_level,reorder_point,supplier,lead_time_days,unit_cost
+2025-01-01,P001,Lay's Classic Chips,120,4500,1000,SupplierA,5,1.20
+2025-01-02,P001,Lay's Classic Chips,135,4365,1000,SupplierA,5,1.20
+2025-01-03,P001,Lay's Classic Chips,110,4255,1000,SupplierA,5,1.20
+2025-01-04,P001,Lay's Classic Chips,98,4157,1000,SupplierA,5,1.20
+2025-01-05,P001,Lay's Classic Chips,142,4015,1000,SupplierA,5,1.20
+2025-01-06,P001,Lay's Classic Chips,155,3860,1000,SupplierA,5,1.20
+2025-01-07,P001,Lay's Classic Chips,130,3730,1000,SupplierA,5,1.20
+2025-01-08,P001,Lay's Classic Chips,128,3602,1000,SupplierA,5,1.20
+2025-01-09,P001,Lay's Classic Chips,145,3457,1000,SupplierA,5,1.20
+2025-01-10,P001,Lay's Classic Chips,138,3319,1000,SupplierA,5,1.20
+2025-01-11,P001,Lay's Classic Chips,160,3159,1000,SupplierA,5,1.20
+2025-01-12,P001,Lay's Classic Chips,150,3009,1000,SupplierA,5,1.20
+2025-01-13,P001,Lay's Classic Chips,165,2844,1000,SupplierA,5,1.20
+2025-01-14,P001,Lay's Classic Chips,170,2674,1000,SupplierA,5,1.20
+2025-01-15,P001,Lay's Classic Chips,155,2519,1000,SupplierA,5,1.20
+2025-01-16,P001,Lay's Classic Chips,180,2339,1000,SupplierA,5,1.20
+2025-01-17,P001,Lay's Classic Chips,175,2164,1000,SupplierA,5,1.20
+2025-01-18,P001,Lay's Classic Chips,190,1974,1000,SupplierA,5,1.20
+2025-01-19,P001,Lay's Classic Chips,185,1789,1000,SupplierA,5,1.20
+2025-01-20,P001,Lay's Classic Chips,200,1589,1000,SupplierA,5,1.20
+2025-01-21,P001,Lay's Classic Chips,195,1394,1000,SupplierA,5,1.20
+2025-01-22,P001,Lay's Classic Chips,188,1206,1000,SupplierA,5,1.20
+2025-01-23,P001,Lay's Classic Chips,192,1014,1000,SupplierA,5,1.20
+2025-01-24,P001,Lay's Classic Chips,198,816,1000,SupplierA,5,1.20
+2025-01-25,P001,Lay's Classic Chips,205,611,1000,SupplierA,5,1.20
+2025-01-26,P001,Lay's Classic Chips,210,401,1000,SupplierA,5,1.20
+2025-01-27,P001,Lay's Classic Chips,180,221,1000,SupplierA,5,1.20
+2025-01-28,P001,Lay's Classic Chips,150,71,1000,SupplierA,5,1.20
+2025-01-01,P002,Pepsi Cola 12-Pack,200,6000,1500,SupplierB,3,3.50
+2025-01-02,P002,Pepsi Cola 12-Pack,215,5785,1500,SupplierB,3,3.50
+2025-01-03,P002,Pepsi Cola 12-Pack,190,5595,1500,SupplierB,3,3.50
+2025-01-04,P002,Pepsi Cola 12-Pack,205,5390,1500,SupplierB,3,3.50
+2025-01-05,P002,Pepsi Cola 12-Pack,220,5170,1500,SupplierB,3,3.50
+2025-01-06,P002,Pepsi Cola 12-Pack,198,4972,1500,SupplierB,3,3.50
+2025-01-07,P002,Pepsi Cola 12-Pack,210,4762,1500,SupplierB,3,3.50
+2025-01-08,P002,Pepsi Cola 12-Pack,195,4567,1500,SupplierB,3,3.50
+2025-01-09,P002,Pepsi Cola 12-Pack,200,4367,1500,SupplierB,3,3.50
+2025-01-10,P002,Pepsi Cola 12-Pack,208,4159,1500,SupplierB,3,3.50
+2025-01-11,P002,Pepsi Cola 12-Pack,215,3944,1500,SupplierB,3,3.50
+2025-01-12,P002,Pepsi Cola 12-Pack,200,3744,1500,SupplierB,3,3.50
+2025-01-13,P002,Pepsi Cola 12-Pack,210,3534,1500,SupplierB,3,3.50
+2025-01-14,P002,Pepsi Cola 12-Pack,205,3329,1500,SupplierB,3,3.50
+2025-01-15,P002,Pepsi Cola 12-Pack,198,3131,1500,SupplierB,3,3.50
+2025-01-16,P002,Pepsi Cola 12-Pack,202,2929,1500,SupplierB,3,3.50
+2025-01-17,P002,Pepsi Cola 12-Pack,210,2719,1500,SupplierB,3,3.50
+2025-01-18,P002,Pepsi Cola 12-Pack,200,2519,1500,SupplierB,3,3.50
+2025-01-19,P002,Pepsi Cola 12-Pack,195,2324,1500,SupplierB,3,3.50
+2025-01-20,P002,Pepsi Cola 12-Pack,205,2119,1500,SupplierB,3,3.50
+2025-01-21,P002,Pepsi Cola 12-Pack,210,1909,1500,SupplierB,3,3.50
+2025-01-22,P002,Pepsi Cola 12-Pack,198,1711,1500,SupplierB,3,3.50
+2025-01-23,P002,Pepsi Cola 12-Pack,200,1511,1500,SupplierB,3,3.50
+2025-01-24,P002,Pepsi Cola 12-Pack,205,1306,1500,SupplierB,3,3.50
+2025-01-25,P002,Pepsi Cola 12-Pack,210,1096,1500,SupplierB,3,3.50
+2025-01-26,P002,Pepsi Cola 12-Pack,200,896,1500,SupplierB,3,3.50
+2025-01-27,P002,Pepsi Cola 12-Pack,195,701,1500,SupplierB,3,3.50
+2025-01-28,P002,Pepsi Cola 12-Pack,205,496,1500,SupplierB,3,3.50
+2025-01-01,P003,Doritos Nacho Cheese,85,3200,800,SupplierA,5,1.45
+2025-01-02,P003,Doritos Nacho Cheese,90,3110,800,SupplierA,5,1.45
+2025-01-03,P003,Doritos Nacho Cheese,78,3032,800,SupplierA,5,1.45
+2025-01-04,P003,Doritos Nacho Cheese,82,2950,800,SupplierA,5,1.45
+2025-01-05,P003,Doritos Nacho Cheese,88,2862,800,SupplierA,5,1.45
+2025-01-06,P003,Doritos Nacho Cheese,92,2770,800,SupplierA,5,1.45
+2025-01-07,P003,Doritos Nacho Cheese,80,2690,800,SupplierA,5,1.45
+2025-01-08,P003,Doritos Nacho Cheese,85,2605,800,SupplierA,5,1.45
+2025-01-09,P003,Doritos Nacho Cheese,90,2515,800,SupplierA,5,1.45
+2025-01-10,P003,Doritos Nacho Cheese,88,2427,800,SupplierA,5,1.45
+2025-01-11,P003,Doritos Nacho Cheese,82,2345,800,SupplierA,5,1.45
+2025-01-12,P003,Doritos Nacho Cheese,86,2259,800,SupplierA,5,1.45
+2025-01-13,P003,Doritos Nacho Cheese,90,2169,800,SupplierA,5,1.45
+2025-01-14,P003,Doritos Nacho Cheese,85,2084,800,SupplierA,5,1.45
+2025-01-15,P003,Doritos Nacho Cheese,80,2004,800,SupplierA,5,1.45
+2025-01-16,P003,Doritos Nacho Cheese,84,1920,800,SupplierA,5,1.45
+2025-01-17,P003,Doritos Nacho Cheese,88,1832,800,SupplierA,5,1.45
+2025-01-18,P003,Doritos Nacho Cheese,82,1750,800,SupplierA,5,1.45
+2025-01-19,P003,Doritos Nacho Cheese,86,1664,800,SupplierA,5,1.45
+2025-01-20,P003,Doritos Nacho Cheese,90,1574,800,SupplierA,5,1.45
+2025-01-21,P003,Doritos Nacho Cheese,85,1489,800,SupplierA,5,1.45
+2025-01-22,P003,Doritos Nacho Cheese,88,1401,800,SupplierA,5,1.45
+2025-01-23,P003,Doritos Nacho Cheese,84,1317,800,SupplierA,5,1.45
+2025-01-24,P003,Doritos Nacho Cheese,86,1231,800,SupplierA,5,1.45
+2025-01-25,P003,Doritos Nacho Cheese,82,1149,800,SupplierA,5,1.45
+2025-01-26,P003,Doritos Nacho Cheese,88,1061,800,SupplierA,5,1.45
+2025-01-27,P003,Doritos Nacho Cheese,85,976,800,SupplierA,5,1.45
+2025-01-28,P003,Doritos Nacho Cheese,90,886,800,SupplierA,5,1.45
+2025-01-01,P004,Gatorade Lemon-Lime,150,5500,1200,SupplierC,7,2.10
+2025-01-02,P004,Gatorade Lemon-Lime,145,5355,1200,SupplierC,7,2.10
+2025-01-03,P004,Gatorade Lemon-Lime,160,5195,1200,SupplierC,7,2.10
+2025-01-04,P004,Gatorade Lemon-Lime,155,5040,1200,SupplierC,7,2.10
+2025-01-05,P004,Gatorade Lemon-Lime,148,4892,1200,SupplierC,7,2.10
+2025-01-06,P004,Gatorade Lemon-Lime,152,4740,1200,SupplierC,7,2.10
+2025-01-07,P004,Gatorade Lemon-Lime,158,4582,1200,SupplierC,7,2.10
+2025-01-08,P004,Gatorade Lemon-Lime,142,4440,1200,SupplierC,7,2.10
+2025-01-09,P004,Gatorade Lemon-Lime,150,4290,1200,SupplierC,7,2.10
+2025-01-10,P004,Gatorade Lemon-Lime,155,4135,1200,SupplierC,7,2.10
+2025-01-11,P004,Gatorade Lemon-Lime,148,3987,1200,SupplierC,7,2.10
+2025-01-12,P004,Gatorade Lemon-Lime,152,3835,1200,SupplierC,7,2.10
+2025-01-13,P004,Gatorade Lemon-Lime,145,3690,1200,SupplierC,7,2.10
+2025-01-14,P004,Gatorade Lemon-Lime,150,3540,1200,SupplierC,7,2.10
+2025-01-15,P004,Gatorade Lemon-Lime,158,3382,1200,SupplierC,7,2.10
+2025-01-16,P004,Gatorade Lemon-Lime,145,3237,1200,SupplierC,7,2.10
+2025-01-17,P004,Gatorade Lemon-Lime,152,3085,1200,SupplierC,7,2.10
+2025-01-18,P004,Gatorade Lemon-Lime,148,2937,1200,SupplierC,7,2.10
+2025-01-19,P004,Gatorade Lemon-Lime,155,2782,1200,SupplierC,7,2.10
+2025-01-20,P004,Gatorade Lemon-Lime,150,2632,1200,SupplierC,7,2.10
+2025-01-21,P004,Gatorade Lemon-Lime,148,2484,1200,SupplierC,7,2.10
+2025-01-22,P004,Gatorade Lemon-Lime,152,2332,1200,SupplierC,7,2.10
+2025-01-23,P004,Gatorade Lemon-Lime,150,2182,1200,SupplierC,7,2.10
+2025-01-24,P004,Gatorade Lemon-Lime,145,2037,1200,SupplierC,7,2.10
+2025-01-25,P004,Gatorade Lemon-Lime,155,1882,1200,SupplierC,7,2.10
+2025-01-26,P004,Gatorade Lemon-Lime,150,1732,1200,SupplierC,7,2.10
+2025-01-27,P004,Gatorade Lemon-Lime,148,1584,1200,SupplierC,7,2.10
+2025-01-28,P004,Gatorade Lemon-Lime,152,1432,1200,SupplierC,7,2.10
+2025-01-01,P005,Quaker Oats Granola,60,2000,500,SupplierD,10,2.80
+2025-01-02,P005,Quaker Oats Granola,55,1945,500,SupplierD,10,2.80
+2025-01-03,P005,Quaker Oats Granola,62,1883,500,SupplierD,10,2.80
+2025-01-04,P005,Quaker Oats Granola,58,1825,500,SupplierD,10,2.80
+2025-01-05,P005,Quaker Oats Granola,65,1760,500,SupplierD,10,2.80
+2025-01-06,P005,Quaker Oats Granola,60,1700,500,SupplierD,10,2.80
+2025-01-07,P005,Quaker Oats Granola,57,1643,500,SupplierD,10,2.80
+2025-01-08,P005,Quaker Oats Granola,63,1580,500,SupplierD,10,2.80
+2025-01-09,P005,Quaker Oats Granola,55,1525,500,SupplierD,10,2.80
+2025-01-10,P005,Quaker Oats Granola,60,1465,500,SupplierD,10,2.80
+2025-01-11,P005,Quaker Oats Granola,58,1407,500,SupplierD,10,2.80
+2025-01-12,P005,Quaker Oats Granola,62,1345,500,SupplierD,10,2.80
+2025-01-13,P005,Quaker Oats Granola,56,1289,500,SupplierD,10,2.80
+2025-01-14,P005,Quaker Oats Granola,60,1229,500,SupplierD,10,2.80
+2025-01-15,P005,Quaker Oats Granola,65,1164,500,SupplierD,10,2.80
+2025-01-16,P005,Quaker Oats Granola,58,1106,500,SupplierD,10,2.80
+2025-01-17,P005,Quaker Oats Granola,62,1044,500,SupplierD,10,2.80
+2025-01-18,P005,Quaker Oats Granola,55,989,500,SupplierD,10,2.80
+2025-01-19,P005,Quaker Oats Granola,60,929,500,SupplierD,10,2.80
+2025-01-20,P005,Quaker Oats Granola,58,871,500,SupplierD,10,2.80
+2025-01-21,P005,Quaker Oats Granola,63,808,500,SupplierD,10,2.80
+2025-01-22,P005,Quaker Oats Granola,57,751,500,SupplierD,10,2.80
+2025-01-23,P005,Quaker Oats Granola,60,691,500,SupplierD,10,2.80
+2025-01-24,P005,Quaker Oats Granola,62,629,500,SupplierD,10,2.80
+2025-01-25,P005,Quaker Oats Granola,58,571,500,SupplierD,10,2.80
+2025-01-26,P005,Quaker Oats Granola,55,516,500,SupplierD,10,2.80
+2025-01-27,P005,Quaker Oats Granola,60,456,500,SupplierD,10,2.80
+2025-01-28,P005,Quaker Oats Granola,65,391,500,SupplierD,10,2.80

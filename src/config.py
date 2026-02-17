@@ -13,6 +13,10 @@ GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 
+# Detect if running on Streamlit Cloud (sets this env var automatically)
+IS_STREAMLIT_CLOUD = os.path.exists("/mount/src")
+IS_FREE_TIER = IS_STREAMLIT_CLOUD and LLM_PROVIDER == "groq"
+
 
 def get_llm(temperature: float = 0.0) -> BaseChatModel:
     """Factory function that returns a chat model based on LLM_PROVIDER env var."""
